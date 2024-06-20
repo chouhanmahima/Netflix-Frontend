@@ -15,4 +15,6 @@ export const Upcoming_Movies = "https://api.themoviedb.org/3/movie/upcoming";
 
 export const TMDB_IMG_URL = "https://image.tmdb.org/t/p/w500";
 
+export const SEARCH_MOVIE_URL = "https://api.themoviedb.org/3/search/movie?query=";
+
 export default API_END_POINT;
