@@ -2,7 +2,7 @@ import React from 'react'
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import API_END_POINT from '../utils/Constant';
+import API_END_POINT from "../utils/Constant"
 import { setUser } from '../redux/userSlice';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
