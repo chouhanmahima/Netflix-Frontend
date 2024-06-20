@@ -48,7 +48,7 @@ const SearchMovie = () => {
                     <button className='bg-red-800 text-white rounded-md px-4 py-2'>
                         {
                             isLoading ? "loading..." : "Search"
-                        }
+                        } 
                     </button>
                 </div>
             </form>

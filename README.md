@@ -1,70 +1,206 @@
-# Getting Started with Create React App
+# Netflix Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based Netflix clone application with a rich feature set including authentication, movie browsing, and detailed movie information using various APIs.
+
+## Images
+
+1.Registration page (Sign-up)
+
+![Registration](./public/imgs/Signup.png)
+
+2. Login page
+
+![Login](./public/imgs/Login.png)
+
+3. Home Page (Browse page)
+
+![Home](./public/imgs/Home-page.png)
+
+4. Movies
+
+![movie](./public/imgs/movies.png)
+
+5. Search
+
+![Search](./public/imgs/Search.png)
+
+
+## Table of Contents
+
+- [Netflix Clone](#netflix-clone)
+  - [Images](#images)
+  - [Table of Contents](#table-of-contents)
+  - [Technologies Used](#technologies-used)
+  - [Features](#features)
+  - [Prerequisites](#prerequisites)
+  - [Project Structure](#project-structure)
+  - [Installation](#installation)
+  - [Running the Project](#running-the-project)
+  - [Available Scripts](#available-scripts)
+  - [APIs and Utils](#apis-and-utils)
+  - [Redux Store](#redux-store)
+  - [Custom Hooks](#custom-hooks)
+  - [License](#license)
+
+
+## Technologies Used
+
+- React
+- Redux (for state management)
+- Tailwind CSS (for styling)
+- React Router (for routing)
+- Axios (for API requests)
+- React Hot Toast (for notifications)
+- Material UI (for UI components)
+- TMDB API (for movie data)
+
+## Features
+
+- User Authentication (Login and Signup)
+- Browse movies by categories (Now Playing, Popular, Top Rated, Upcoming)
+- Search for movies
+- View movie details and trailers
+- Responsive design
+- 
+## Prerequisites
+
+- Node.js (version >= 14.x)
+- npm (version >= 6.x) or yarn (version >= 1.x)
+
+## Project Structure
+
+```plaintext
+.
+├── public
+│   ├── images
+│   │   └── ...
+│   ├── index.html
+│   └── ...
+├── src
+│   ├── components
+│   │   ├── Body.js
+│   │   ├── Header.js
+│   │   ├── Login.js
+│   │   ├── Browse.js
+│   │   ├── MainContainer.js
+│   │   ├── MovieCard.js
+│   │   ├── MovieContainer.js
+│   │   ├── MovieDialog.js
+│   │   ├── MovieList.js
+│   │   ├── SearchMovie.js
+│   │   ├── VideoBackground.js
+│   │   ├── VideoTitle.js
+│   │   └── ...
+│   ├── hooks
+│   │   ├── useMovieById.js
+│   │   ├── useNowPlayingMovies.js
+│   │   ├── usePopularMovies.js
+│   │   ├── useTopRatedMovies.js
+│   │   ├── useUpcomingMovies.js
+│   │   └── ...
+│   ├── redux
+│   │   ├── store.js
+│   │   ├── movieSlice.js
+│   │   ├── searchSlice.js
+│   │   └── userSlice.js
+│   ├── utils
+│   │   └── Constant.js
+│   ├── App.js
+│   ├── index.js
+│   └── index.css
+├── .gitignore
+├── README.md
+├── package.json
+└── tailwind.config.js
+```
+## Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/chouhanmahima/Netflix-Frontend.git
+   cd netflix-clone
+   ```
+
+2. Install dependencies:
+```sh
+    npm install
+```
+## Running the Project
+
+1. Start the development server:
+```sh
+    npm start
+```
+1. Open http://localhost:3000 to view it in the browser.
+
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+* `npm start`: Runs the app in the development mode.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* `npm run build:` Builds the app for production to the build folder.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* `npm test`: Launches the test runner in the interactive watch mode.
 
-### `npm test`
+## APIs and Utils
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`Constant.js`
 
-### `npm run build`
+Contains important constants such as API endpoints and options for making requests to the TMDB API.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```javascript
+export const API_END_POINT = "https://api.example.com";
+export const SEARCH_MOVIE_URL = "https://api.themoviedb.org/3/search/movie?query=";
+export const TMDB_IMG_URL = "https://image.tmdb.org/t/p/w500";
+export const options = {
+  headers: {
+    "Authorization": "Bearer YOUR_TMDB_API_KEY"
+  }
+};
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Redux Store
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. `store.js`
 
-### `npm run eject`
+Configures the Redux store and integrates Redux slices.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. `movieSlice.js`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Handles state and actions related to movies (now playing, popular, top rated, upcoming, and trailer movie).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. `searchSlice.js`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Manages the state for searched movies.
 
-## Learn More
+4. `userSlice.js`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Manages user authentication state and loading state.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Custom Hooks
 
-### Code Splitting
+1. `useNowPlayingMovies.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Fetches and dispatches the now playing movies data.
 
-### Analyzing the Bundle Size
+2. `usePopularMovies.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Fetches and dispatches the popular movies data.
 
-### Making a Progressive Web App
+3. `useTopRatedMovies.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Fetches and dispatches the top rated movies data.
 
-### Advanced Configuration
+4. `useUpcomingMovies.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Fetches and dispatches the upcoming movies data.
 
-### Deployment
+5. `useMovieById.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Fetches and dispatches the trailer movie data based on movie ID.
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License. See the LICENSE file for details.
