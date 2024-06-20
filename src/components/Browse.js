@@ -7,13 +7,15 @@ import MovieContainer from './MovieContainer';
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
 import usePopularMovies from '../hooks/usePopularMovies';
 import useTopRatedMovies from '../hooks/useTopRatedMovies';
-import useUpcomingMovies from '../hooks/useUpcommingMovies';
+import useUpcomingMovies from '../hooks/useUpcomingMovies';
+import SearchMovie from "../components/SearchMovie";
 
 
 
 const Browse = () => {
 
   const user = useSelector(store => store.app.user);
+  const toggle = useSelector(store => store.movie.toggle);
   const navigate = useNavigate();
 
   // My Custom Hooks Called here
@@ -23,18 +25,24 @@ const Browse = () => {
   useUpcomingMovies();
 
   useEffect(() => {
-    if(!user){
+    if (!user) {
       navigate("/");
     }
-  },);
+  },[]);
 
   return (
     <div>
-         <Header/>
-        <div>
-          <MainContainer/>
-          <MovieContainer/>
-        </div>
+      <Header />
+      <div>
+        {
+          toggle ? <SearchMovie /> : (
+            <>
+              <MainContainer />
+              <MovieContainer />
+            </>
+          )
+        }
+      </div>
     </div>
   )
 }
