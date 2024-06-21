@@ -27,7 +27,7 @@ const useMovieById = async (movieId) => {
        
         getMovieById();
 
-     },)
+     },[])
 }  
 
 export default useMovieById
