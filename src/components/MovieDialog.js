@@ -10,7 +10,11 @@ import VideoBackground from './VideoBackground';
 
 export default function MovieDialog() {
 
-  const { open,id } = useSelector(store=>store.movie);
+ const obj = useSelector(store => store.movie);
+  // console.log(obj);
+
+ const {open, id} = obj;
+
   const dispatch = useDispatch();
   const handleClose = () => {
     dispatch(setOpen(false));
