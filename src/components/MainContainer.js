@@ -7,7 +7,7 @@ const MainContainer = () => {
   const movie = useSelector(store => store.movie?.nowPlayingMovies);
 
   if(!movie) return;    // Early return in react
-  console.log(movie);
+  // console.log(movie);
 
   const {overview, id, title} = movie[4]
 
